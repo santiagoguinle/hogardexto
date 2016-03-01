@@ -24,8 +24,8 @@ HogarDeXto was created by and is maintained by **Santiago Guinle**
 * https://twitter.com/jameskooc
 * https://github.com/santiagoguinle
 
-HogarDeXto is based on the [Start Bootstrap](http://startbootstrap.com/) and [Code Igniter] (https://www.codeigniter.com/) created by [santiagoguinle](http://santiagoguinle.com/).
+HogarDeXto is based on the [Start Bootstrap](http://startbootstrap.com/) and [Code Igniter] (https://www.codeigniter.com/).
 
 ## Copyright and License
 
-Code released under the [Apache 2.0](https://github.com/IronSummitMedia/startbootstrap-sb-admin/blob/gh-pages/LICENSE) license.
+Code released under the [Apache 2.0](https://github.com/santiagoguinle/hogardexto/blob/master/LICENSE) license.
