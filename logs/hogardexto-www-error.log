@@ -1,0 +1,9 @@
+[Wed Mar 02 03:50:00.103137 2016] [authz_core:error] [pid 10] [client 172.17.0.1:39743] AH01630: client denied by server configuration: /var/www/web/
+[Wed Mar 02 03:50:04.377609 2016] [authz_core:error] [pid 12] [client 172.17.0.1:39761] AH01630: client denied by server configuration: /var/www/web/login
+[Wed Mar 02 03:51:31.364923 2016] [authz_core:error] [pid 9] [client 172.17.0.1:39818] AH01630: client denied by server configuration: /var/www/web/login
+[Wed Mar 02 03:51:33.304841 2016] [authz_core:error] [pid 9] [client 172.17.0.1:39818] AH01630: client denied by server configuration: /var/www/web/
+[Wed Mar 02 03:51:58.790498 2016] [autoindex:error] [pid 9] [client 172.17.0.1:39865] AH01276: Cannot serve directory /var/www/web/: No matching DirectoryIndex (index.html) found, and server-generated directory index forbidden by Options directive
+[Wed Mar 02 03:51:59.806937 2016] [autoindex:error] [pid 12] [client 172.17.0.1:39871] AH01276: Cannot serve directory /var/www/web/: No matching DirectoryIndex (index.html) found, and server-generated directory index forbidden by Options directive
+[Wed Mar 02 03:52:00.347179 2016] [autoindex:error] [pid 10] [client 172.17.0.1:39878] AH01276: Cannot serve directory /var/www/web/: No matching DirectoryIndex (index.html) found, and server-generated directory index forbidden by Options directive
+[Wed Mar 02 03:52:06.219761 2016] [autoindex:error] [pid 9] [client 172.17.0.1:39880] AH01276: Cannot serve directory /var/www/web/: No matching DirectoryIndex (index.html) found, and server-generated directory index forbidden by Options directive
+[Wed Mar 02 03:53:21.168273 2016] [autoindex:error] [pid 13] [client 172.17.0.1:39894] AH01276: Cannot serve directory /var/www/web/: No matching DirectoryIndex (index.html) found, and server-generated directory index forbidden by Options directive
