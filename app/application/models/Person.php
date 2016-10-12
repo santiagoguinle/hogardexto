@@ -24,7 +24,7 @@ class Person extends CI_Model
         return $this->db->insert_id();
     }
 
-    public function save($id, $data)
+    public function save(&$id, $data)
     {
         if ($id == null) {
             $id = $this->create($data["name"], $data["firstdate"]);
