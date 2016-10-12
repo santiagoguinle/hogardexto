@@ -31,7 +31,7 @@
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -127,22 +127,7 @@
                                     </ul>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?=$_SESSION['username']?> <b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="#"><i class="fa fa-fw fa-user"></i> Usuario</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Mensajes</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"><i class="fa fa-fw fa-gear"></i> Configuracion</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li>
-                                            <a href="<?= base_url('logout') ?>"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
-                                        </li>
-                                    </ul>
+                                    <a href="#"><i class="fa fa-user"></i> <?= $_SESSION['username'] ?></a>
                                 </li>
                             </ul>
                         </ul>
@@ -182,7 +167,20 @@
                             </ul>
                         </li-->
                         <li >
-                            <a href="<?=base_url("/persons/create")?>"><i class="fa fa-fw fa-file"></i> Crear Persona</a>
+                            <a href="<?= base_url("/persons/create") ?>"><i class="fa fa-fw fa-file"></i> Crear Persona</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Usuario</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Mensajes</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Configuracion</a>
+                        </li>
+                        <li>
+                            <a href="<?= base_url('logout') ?>"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </div>
