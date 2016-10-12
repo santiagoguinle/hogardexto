@@ -1,6 +1,5 @@
 <?php
-
-$person["center"]=(isset($person["center"]))?$person["center"]:0;
+$person["center"] = (isset($person["center"])) ? $person["center"] : 0;
 ?>
 
 <div class="row">
@@ -9,14 +8,12 @@ $person["center"]=(isset($person["center"]))?$person["center"]:0;
         <div class="form-group">
             <label class="col-sm-3 control-label hidden-lg hidden-md">Avatar: </label>
             <div class="col-sm-12">
-                <div  style="width:200px">
-                    <div class="file-preview">
-                        <?php if (is_file("../uploads/avatars/".$person["avatar"]) ) { ?>
-                        <img src="/img/avatar/<?=$person["avatar"]?>" style="width: 100%" />
-                        <?php } else {?>
-                            <img src="/js/plugins/fileinput/img/default_avatar_male.jpg" />
-                        <?php } ?>
-                    </div>
+                <div class="file-preview">
+                    <?php if (is_file("../uploads/avatars/" . $person["avatar"])) { ?>
+                        <img src="/img/avatar/<?= $person["avatar"] ?>" style="width: 100%" />
+                    <?php } else { ?>
+                        <img src="/js/plugins/fileinput/img/default_avatar_male.jpg" />
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -25,27 +22,25 @@ $person["center"]=(isset($person["center"]))?$person["center"]:0;
     <div class="col-md-9">
 
         <div class="form-group">
-            <label class="col-sm-3 control-label hidden-lg hidden-md">Cemtro Barrial de referencia: </label>
+            <label class="col-sm-4 control-label">Centro Barrial de referencia: </label>
             <div class="col-sm-6">
-                <?php echo $optionsCenter[$person["center"]]?>
+                <?php echo $optionsCenter[$person["center"]] ?>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-3 control-label hidden-lg hidden-md">Nombre completo: </label>
-            <div class="col-sm-3">
-                <?php echo $person["name"]?>
-            </div>
-            <div class="col-sm-2">
-                <?php echo ($person["nickname"])?'"'.$person["nickname"].'"':'' ?>
-            </div>
-            <div class="col-sm-3">
+            <label class="col-sm-4 control-label">Nombre completo: </label>
+            <div class="col-sm-6">
+                <?php echo $person["name"] ?>
+            
+                <?php echo ($person["nickname"]) ? '"' . $person["nickname"] . '"' : '' ?>
+            
                 <strong><?php echo $person["lastname"] ?></strong>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-3 control-label hidden-lg hidden-md">Genero de nacimiento: </label>
+            <label class="col-sm-4 control-label ">Genero de nacimiento: </label>
             <div class="col-sm-6">
                 <?php echo ($person["gender"]) ? 'Hombre' : "Mujer" ?>
             </div>
@@ -53,7 +48,7 @@ $person["center"]=(isset($person["center"]))?$person["center"]:0;
 
 
         <div class="form-group">
-            <label class="col-sm-3 control-label hidden-lg  hidden-md">Fecha de nacimiento: </label>
+            <label class="col-sm-4 control-label ">Fecha de nacimiento: </label>
             <div class="col-sm-6">
                 <?php echo $person["birthdate"] ?>
             </div>

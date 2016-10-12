@@ -20,6 +20,14 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+            if(!$_SESSION["username"]){
+                redirect("login");
+            } else{
+                redirect("persons/create");
+            }
+            
 	}
+        public function search(){
+            
+        }
 }

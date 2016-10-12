@@ -68,8 +68,16 @@ $this->load->helper("form");
             </div>
             <div class="form-group">
                 <div class="col-lg-offset-2 col-lg-10">
-                    <button type="button" class="btn btn-info"><i class='fa fa-save'></i> Editar</button>
+                    <button type="button" class="btn btn-info" onclick="window.location.href = '/persons/edit/<?= $person["id"] ?>'"><i class='fa fa-save'></i> Editar</button>
                 </div>
             </div>
     </section>
 </div>
+
+<style>
+    @media (min-width: 768px){
+        .form-horizontal .control-label {
+            padding-top: 0px;
+        }
+    }
+</style>
