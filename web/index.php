@@ -1,5 +1,5 @@
 <?php
-date_default_timezone_set(-3);
+date_default_timezone_set("America/Argentina/Buenos_Aires");
 /**
  * CodeIgniter
  *
