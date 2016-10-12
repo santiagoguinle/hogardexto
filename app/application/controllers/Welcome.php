@@ -20,7 +20,7 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-            if(!$_SESSION["username"]){
+            if(!isset($_SESSION["username"])){
                 redirect("login");
             } else{
                 redirect("persons/create");
