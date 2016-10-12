@@ -16,7 +16,7 @@
         <link href="<?= base_url('css/plugins/bootstrap-switch.css') ?>" rel="stylesheet" />
         <link href="<?= base_url('css/plugins/bootstrap-datepicker/datepicker.css') ?>" rel="stylesheet" />
         <link href="<?= base_url('css/sb-admin.css') ?>" rel="stylesheet" />
-        
+
         <link href="<?= base_url('css/style.css') ?>" rel="stylesheet" />
         <link href="<?= base_url('js/plugins/fileinput/css/fileinput.min.css') ?>" rel="stylesheet" />
 
@@ -27,7 +27,7 @@
     </head>
     <body>
         <div id="wrapper">
-        <!--header id="site-header"-->
+            <!--header id="site-header"-->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -45,12 +45,106 @@
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <?php if (isset($_SESSION['username']) && $_SESSION['logged_in'] === true) : ?>
-                                <li><a href="<?= base_url('logout') ?>">Salir</a></li>
-                            <?php else : ?>
-                                <li><a href="<?= base_url('register') ?>">Registrarse</a></li>
-                                <li><a href="<?= base_url('login') ?>">Entrar</a></li>
-                            <?php endif; ?>
+                            <ul class="nav navbar-right top-nav">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                                    <ul class="dropdown-menu message-dropdown">
+                                        <li class="message-preview">
+                                            <a href="#">
+                                                <div class="media">
+                                                    <span class="pull-left">
+                                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                                    </span>
+                                                    <div class="media-body">
+                                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                                        </h5>
+                                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="message-preview">
+                                            <a href="#">
+                                                <div class="media">
+                                                    <span class="pull-left">
+                                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                                    </span>
+                                                    <div class="media-body">
+                                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                                        </h5>
+                                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="message-preview">
+                                            <a href="#">
+                                                <div class="media">
+                                                    <span class="pull-left">
+                                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                                    </span>
+                                                    <div class="media-body">
+                                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                                        </h5>
+                                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="message-footer">
+                                            <a href="#">Read All New Messages</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                                    <ul class="dropdown-menu alert-dropdown">
+                                        <li>
+                                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="#">View All</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?=$_SESSION['username']?> <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="#"><i class="fa fa-fw fa-user"></i> Usuario</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Mensajes</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fa fa-fw fa-gear"></i> Configuracion</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="<?= base_url('logout') ?>"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </ul>
                     </div><!-- .navbar-collapse -->
                 </div><!-- .container-fluid -->
@@ -87,26 +181,26 @@
                                 </li>
                             </ul>
                         </li-->
-                        <li class="active">
-                            <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Nueva Persona</a>
+                        <li >
+                            <a href="<?=base_url("/persons/create")?>"><i class="fa fa-fw fa-file"></i> Crear Persona</a>
                         </li>
                     </ul>
                 </div>
 
 
             </nav><!-- .navbar -->
-        <!--/header><!-- #site-header -->
+            <!--/header><!-- #site-header -->
 
 
-        <div id="page-wrapper">
-        <!--main id="site-content" role="main"-->
+            <div id="page-wrapper">
+                <!--main id="site-content" role="main"-->
 
-            <?php if (isset($_SESSION)) : ?>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <?php // var_dump($_SESSION); ?>
-                        </div>
-                    </div><!-- .row -->
-                </div><!-- .container -->
-            <?php endif; ?>
+                <?php if (isset($_SESSION)) : ?>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <?php // var_dump($_SESSION); ?>
+                            </div>
+                        </div><!-- .row -->
+                    </div><!-- .container -->
+                <?php endif; ?>

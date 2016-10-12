@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
         removeTitle: 'Cancel or reset changes',
         elErrorContainer: '#kv-avatar-errors',
         msgErrorClass: 'alert alert-block alert-danger',
-        defaultPreviewContent: '<img src="'+ (avatar ? avatar :'/js/plugins/fileinput/img/default_avatar_male.jpg') + '" alt="Your Avatar" style="width:160px">',
+        defaultPreviewContent: '<img src="'+ (typeof avatar !== 'undefined' && avatar !== '/img/avatar/' ? avatar :'/js/plugins/fileinput/img/default_avatar_male.jpg') + '" alt="Your Avatar" style="width:160px">',
         layoutTemplates: {main2: '{preview} {remove} {browse}'},
         allowedFileExtensions: ["jpg", "png", "gif"]
     });
