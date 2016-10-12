@@ -54,5 +54,7 @@ $route['login'] = 'users/login';
 $route['register'] = 'users/register';
 $route['logout'] = 'users/logout';
 
+$route['editar/(.+)'] = 'persons/edit/$1';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

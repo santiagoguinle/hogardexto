@@ -2,10 +2,11 @@ web:
     build: .
     container_name: hogardexto_web
     ports:
-        - "80:80"
+        - "81:80"
     volumes:
         - ../app:/var/www/app
         - ../web:/var/www/web
+        - ../uploads:/var/www/uploads
         #- ../src/config/apache/php.ini:/etc/php5/apache2/php.ini
         - ../src/config/apache/hogardexto.conf:/etc/apache2/sites-enabled/hogardexto.conf
         - ../logs:/var/log/apache2
