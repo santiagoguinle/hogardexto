@@ -21,12 +21,12 @@ mysql:
     image: mysql:latest
     container_name: hogardexto_mysql
     ports:
-        - "3306:3306"
+        - "3307:3306"
     volumes:
         - ../db/working:/var/lib/mysql
         - ../db/structure:/var/db/structure
         - ../db/initial-data:/var/db/initial-data
-        - ../src/scripts/mysql:~/scripts
+        - ../src/scripts/mysql:/scripts
     #entrypoint: ~/scripts/create.sh
     environment:
         - MYSQL_ROOT_PASSWORD=oiTSj.c5rj

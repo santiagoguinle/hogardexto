@@ -26,9 +26,8 @@
         <![endif]-->
     </head>
     <body>
-        <div id="wrapper">
-        <!--header id="site-header"-->
-            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <header id="site-header">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -38,19 +37,13 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="<?= base_url() ?>">
-                            <?php if (isset($_SESSION['username']) && $_SESSION['logged_in'] === true) : ?>
-                                Hogar de Cristo
-                            <?php endif; ?>
+                            
                         </a>
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <?php if (isset($_SESSION['username']) && $_SESSION['logged_in'] === true) : ?>
-                                <li><a href="<?= base_url('logout') ?>">Salir</a></li>
-                            <?php else : ?>
-                                <li><a href="<?= base_url('register') ?>">Registrarse</a></li>
-                                <li><a href="<?= base_url('login') ?>">Entrar</a></li>
-                            <?php endif; ?>
+                            <li><a href="<?= base_url('register') ?>">Registrarse</a></li>
+                            <li><a href="<?= base_url('login') ?>">Entrar</a></li>
                         </ul>
                     </div><!-- .navbar-collapse -->
                 </div><!-- .container-fluid -->
@@ -95,11 +88,9 @@
 
 
             </nav><!-- .navbar -->
-        <!--/header><!-- #site-header -->
+        </header><!-- #site-header -->
 
-
-        <div id="page-wrapper">
-        <!--main id="site-content" role="main"-->
+        <main id="site-content" role="main">
 
             <?php if (isset($_SESSION)) : ?>
                 <div class="container-fluid">
