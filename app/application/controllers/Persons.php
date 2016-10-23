@@ -87,6 +87,17 @@ class Persons extends CI_Controller
     {
         $this->edit(null);
     }
+    
+    public function search()
+    {
+        $data = $this->getDataOptions();
+        
+        $data["persons"] = $this->person->get_all();
+
+        $this->load->view('header');
+        $this->load->view('persons/lists/search', $data);
+        $this->load->view('footer');
+    }
 
     public function edit($id = null)
     {

@@ -42,7 +42,7 @@
         <div class="form-group">
             <label class="col-sm-3 control-label hidden-lg hidden-md">Genero de nacimiento: </label>
             <div class="col-sm-6">
-                <input id="person[gender]" 	data-handle-width="100" type="checkbox" data-on-text="<i class='fa fa-male'></i> Hombre" data-off-text="<i class='fa fa-female'></i> Mujer" data-off-color="danger" value="1" <?= ($person["gender"]) ? 'checked="checked' : "" ?> class="bootstrap-switch">
+                <input id="person[gender]" name="person[gender]"	data-handle-width="100" type="checkbox" data-on-text="<i class='fa fa-male'></i> Hombre" data-off-text="<i class='fa fa-female'></i> Mujer" data-off-color="danger" value="1" <?= ($person["gender"]) ? 'checked="checked"' : "" ?> class="bootstrap-switch" />
             </div>
         </div>
 

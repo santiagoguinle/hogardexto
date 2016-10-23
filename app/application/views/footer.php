@@ -17,6 +17,7 @@
 	<script src="<?= base_url('js/plugins/fileinput/fileinput_locale_es.js') ?>"></script>
         
         <script src="<?= base_url('js/plugins/bootstrap-inputmask/bootstrap-inputmask.js') ?>"></script>
+        <script src="<?= base_url('js/plugins/advanced-datatable/js/jquery.dataTables.js') ?>"></script>
         
 	<script src="<?= base_url('js/script.js') ?>"></script>
 

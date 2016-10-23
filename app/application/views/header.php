@@ -17,8 +17,10 @@
         <link href="<?= base_url('css/plugins/bootstrap-datepicker/datepicker.css') ?>" rel="stylesheet" />
         <link href="<?= base_url('css/sb-admin.css') ?>" rel="stylesheet" />
 
-        <link href="<?= base_url('css/style.css') ?>" rel="stylesheet" />
+        <link href="<?= base_url('js/plugins/advanced-datatable/css/jquery.dataTables.css') ?>" rel="stylesheet" />
         <link href="<?= base_url('js/plugins/fileinput/css/fileinput.min.css') ?>" rel="stylesheet" />
+
+        <link href="<?= base_url('css/style.css') ?>" rel="stylesheet" />
 
         <!--[if lt IE 9]>
                 <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -169,6 +171,21 @@
                         <li >
                             <a href="<?= base_url("/persons/create") ?>"><i class="fa fa-fw fa-file"></i> Crear Persona</a>
                         </li>
+                        <li >
+                            <a href="<?= base_url("/persons/search") ?>"><i class="fa fa-fw fa-table"></i> Buscador</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Lista Por Centro <i class="fa fa-fw fa-caret-down"></i></a>
+                            <ul id="demo" class="collapse">
+                                <li>
+                                    <a href="#">Don Bosco</a>
+                                </li>
+                                <li>
+                                    <a href="#">Huancaina</a>
+                                </li>
+                            </ul>
+                        </li-->
+                        
                         <li class="divider"></li>
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Usuario</a>
