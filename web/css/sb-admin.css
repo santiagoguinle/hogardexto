@@ -125,7 +125,7 @@ ul.alert-dropdown {
         background-color: #222;
         bottom: 0;
         overflow-x: hidden;
-        padding-bottom: 40px;
+        padding-bottom: 0px;
     }
 
     .side-nav>li>a {

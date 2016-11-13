@@ -29,23 +29,33 @@ class Person extends CI_Model
         if ($id == null) {
             $id = $this->create($data["name"], $data["firstdate"]);
         }
-        
+
         if (isset($data["diseases"])) {
             $diseases = $data["diseases"];
             unset($data["diseases"]);
-            //   $this->load->model("disease");
-            //   $this->diseases->saveToPerson($id, $data["diseases"]);
+            $this->load->model("Disease");
+            $this->Disease->saveToPerson($id, $diseases);
         }
 
         $this->db->where("id", $id);
         $result = $this->db->update('persons', $data);
-        
+
         if (isset($diseases)) {
             $data["diseases"] = $diseases;
         }
         return $result;
     }
 
+    public function getByCenterId($centerId)
+    {
+        $this->db->select();
+        $this->db->from('persons');
+        $this->db->where('is_deleted = 0');
+        $this->db->where('center = '.$centerId);
+
+        return $this->db->get()->result_array();
+    }
+    
     public function get_all()
     {
         $this->db->select();
@@ -54,17 +64,33 @@ class Person extends CI_Model
 
         return $this->db->get()->result_array();
     }
+    public function nextBirthdates()
+    {
+        $this->db->select();
+        $this->db->from('persons');
+        $this->db->where('is_deleted = 0');
+        $this->db->where('dayofyear(birthdate) between dayofyear(now()) and (dayofyear(now())+15)');
 
+        return $this->db->get()->result_array();
+    }
     public function getPerson($id)
     {
-       $this->db->where("id",$id);
-       $result = $this->db->get('persons');
-       $person = $result->row_array();
-       // $this->load->model("disease");
-       // $person["diseases"] = $this->diseases->diseasesOfPerson($id);
+        $this->db->where("id", $id);
+        $result = $this->db->get('persons');
+        $person = $result->row_array();
+        $this->load->model("Disease");
+        $person["diseases"] = $this->Disease->diseasesOfPerson($id);
         return $person;
     }
+    public function lastPersons()
+    {
+        $this->db->select();
+        $this->db->from('persons');
+        $this->db->where('is_deleted = 0');
+        $this->db->where('datediff(now(),firstdate) < 30');
 
+        return $this->db->get()->result_array();
+    }
     public function getDefaultPerson()
     {
         return array("name" => "",

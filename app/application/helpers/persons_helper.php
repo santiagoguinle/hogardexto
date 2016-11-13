@@ -2,11 +2,11 @@
 
 function hasDisease($disease, $person)
 {
-    if (!isset($person) || !isset($person["health"]) || !isset($person["health"]["diseases"])) {
+    if (!isset($person) || !isset($person["diseases"])) {
         return false;
     }
-    foreach ($person["health"]["diseases"] as $testDisease) {
-        if ($testDisease["id"] == $disease["id"]) {
+    foreach ($person["diseases"] as $testDisease) {
+        if ($testDisease == $disease["id"]) {
             return true;
         }
     }

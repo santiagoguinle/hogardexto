@@ -87,11 +87,27 @@ class Persons extends CI_Controller
     {
         $this->edit(null);
     }
-    
+
+    public function center($centerId)
+    {
+        $data = $this->getDataOptions();
+
+        if(!isset($data["optionsCenter"][$centerId])) {
+            show_404("/person/center/".$centerId,$centerId." no encontrado como centro de dia");
+        }
+
+        $data["centerName"] = $data["optionsCenter"][$centerId];
+        $data["persons"] = $this->person->getByCenterId($centerId);
+
+        $this->load->view('header');
+        $this->load->view('persons/lists/center', $data);
+        $this->load->view('footer');
+    }
+
     public function search()
     {
         $data = $this->getDataOptions();
-        
+
         $data["persons"] = $this->person->get_all();
 
         $this->load->view('header');
@@ -99,13 +115,53 @@ class Persons extends CI_Controller
         $this->load->view('footer');
     }
 
+    public function download()
+    {
+        $data = $this->getDataOptions();
+
+        $this->load->library("PHPExcel/PHPExcel", null, "PHPExcel");
+        $data["persons"] = $this->person->get_all();
+
+        $rows = $this->prepareForDownload($data["persons"]);
+
+        $this->PHPExcel->getActiveSheet()->fromArray($rows, null, "A1");
+        $this->PHPExcel->getActiveSheet()->setTitle('Lista Completa');
+        // Redirect output to a client’s web browser (Excel2007)
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="01simple.xlsx"');
+        header('Cache-Control: max-age=0');
+
+        $objWriter = PHPExcel_IOFactory::createWriter($this->PHPExcel, 'Excel2007');
+        $objWriter->save('php://output');
+    }
+
+    private function prepareForDownload($persons)
+    {
+        $opts = $this->getDataOptions();
+        $rows = array();
+        $rows[] = array("Id", "Nombre", "Apodo", "Apellido", "Cuil", "Genero",
+            "Centro", "Telefono Referencia", "Nombre Referencia", "Familia",
+            "Trabajo", "Educacion Primaria", "Educacion Secundaria", "Ocupacion",
+            "Situacion Judicial", "Antecedentes Penales", "Enfermedades", "Tratamientos");
+        foreach ($persons as $row) {
+            $rows[] = array($row["id"], $row["name"], $row["nickname"],
+                $row["lastname"], $row["cuil"], $row["gender"], $opts["optionsCenter"][$row["center"]],
+                $row["reference_tel"], $row["reference_name"], $row["family"],
+                $row["work_description"], $opts["optionsEducation"][$row["education_primary"]],
+                $opts["optionsEducation"][$row["education_secondary"]],
+                $row["occupation"], $opts["optionsJudicial"][$row["criminal_situation"]],
+                $row["other_diseases"], $row["treatments"]);
+        }
+        return $rows;
+    }
+
     public function edit($id = null)
     {
         $data = $this->getDataOptions();
-       
+
 // create the data object
         $data["person"] = ($id) ? $this->person->getPerson($id) : $this->person->getDefaultPerson();
-        
+
 // load form helper and validation library
         $this->load->helper('form');
         $this->load->helper('persons');
@@ -125,8 +181,8 @@ class Persons extends CI_Controller
 // set variables from the form
             $person = $this->input->post('person');
 
-            $person["avatar"] = $this->uploadAvatar($data["person"]["avatar"],$person["name"]." ".$person["lastname"]);
-            
+            $person["avatar"] = $this->uploadAvatar($data["person"]["avatar"], $person["name"] . " " . $person["lastname"]);
+
             if ($this->person->save($id, $person)) {
                 redirect("/persons/view/{$id}");
             } else {
@@ -137,25 +193,25 @@ class Persons extends CI_Controller
             }
         }
     }
-    
-    private function uploadAvatar($previous,$newfilename){
-        $config['upload_path']          = '../uploads/avatars/';
-        $config['allowed_types']        = 'gif|jpg|png';
-        $config['max_size']             = 1000;
-        $config['max_width']            = 1524;
-        $config['max_height']           = 1068;
+
+    private function uploadAvatar($previous, $newfilename)
+    {
+        $config['upload_path'] = '../uploads/avatars/';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size'] = 1000;
+        $config['max_width'] = 1524;
+        $config['max_height'] = 1068;
         $config['file_name'] = $newfilename;
-        
+
         $this->load->library('upload', $config);
-        
-        if ( ! $this->upload->do_upload('avatar')){
+
+        if (!$this->upload->do_upload('avatar')) {
             $errors = $this->upload->display_errors();
             return $previous;
-        }else{
+        } else {
             $data = $this->upload->data();
             return $data['file_name'];
         }
-            
     }
 
 }

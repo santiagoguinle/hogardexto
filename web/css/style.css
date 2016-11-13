@@ -24,3 +24,11 @@ hr{
         margin-top:0px;
     }
 }
+
+.dataTables_wrapper .row{
+    margin:0px;
+}
+
+body {
+    background-color: #eee;
+}

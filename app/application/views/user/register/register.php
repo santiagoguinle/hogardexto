@@ -17,31 +17,31 @@
 		<?php endif; ?>
 		<div class="col-md-12">
 			<div class="page-header">
-				<h1>Register</h1>
+				<h1>Registro</h1>
 			</div>
 			<?= form_open() ?>
 				<div class="form-group">
-					<label for="username">Username</label>
-					<input type="text" class="form-control" id="username" name="username" placeholder="Enter a username">
-					<p class="help-block">At least 4 characters, letters or numbers only</p>
+					<label for="username">Usuario</label>
+					<input type="text" class="form-control" id="username" name="username" >
+					<p class="help-block">Al menos 4 caracteres, solo numeros y letras</p>
 				</div>
 				<div class="form-group">
 					<label for="email">Email</label>
-					<input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
-					<p class="help-block">A valid email address</p>
+					<input type="email" class="form-control" id="email" name="email" >
+					<p class="help-block">Una direccion que revises seguido, no vamos a enviar spam</p>
 				</div>
 				<div class="form-group">
-					<label for="password">Password</label>
-					<input type="password" class="form-control" id="password" name="password" placeholder="Enter a password">
-					<p class="help-block">At least 6 characters</p>
+					<label for="password">Contraseña</label>
+					<input type="password" class="form-control" id="password" name="password" >
+					<p class="help-block">Al menos 6 caracteres</p>
 				</div>
 				<div class="form-group">
-					<label for="password_confirm">Confirm password</label>
-					<input type="password" class="form-control" id="password_confirm" name="password_confirm" placeholder="Confirm your password">
-					<p class="help-block">Must match your password</p>
+					<label for="password_confirm">Repetir contraseña</label>
+					<input type="password" class="form-control" id="password_confirm" name="password_confirm" >
+					<p class="help-block">Debe coincidir con tu contraseña</p>
 				</div>
 				<div class="form-group">
-					<input type="submit" class="btn btn-default" value="Register">
+					<input type="submit" class="btn btn-success" value="Registrarme">
 				</div>
 			</form>
 		</div>

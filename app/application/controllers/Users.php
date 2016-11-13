@@ -135,10 +135,8 @@ class Users extends CI_Controller
                 $_SESSION['is_confirmed'] = (bool) $user->is_confirmed;
                 $_SESSION['is_admin'] = (bool) $user->is_admin;
 
-                // user login ok
-                $this->load->view('header');
-                $this->load->view('user/login/login_success', $data);
-                $this->load->view('footer');
+                
+                redirect("/");
             } else {
 
                 // login failed

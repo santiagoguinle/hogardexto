@@ -17,7 +17,8 @@
         <link href="<?= base_url('css/plugins/bootstrap-datepicker/datepicker.css') ?>" rel="stylesheet" />
         <link href="<?= base_url('css/sb-admin.css') ?>" rel="stylesheet" />
 
-        <link href="<?= base_url('js/plugins/advanced-datatable/css/jquery.dataTables.css') ?>" rel="stylesheet" />
+        <link href="<?= base_url('js/plugins/advanced-datatable/css/jquery.dataTables.min.css') ?>" rel="stylesheet" />
+        <link href="<?= base_url('js/plugins/advanced-datatable/css/responsive.dataTables.min.css') ?>" rel="stylesheet" />
         <link href="<?= base_url('js/plugins/fileinput/css/fileinput.min.css') ?>" rel="stylesheet" />
 
         <link href="<?= base_url('css/style.css') ?>" rel="stylesheet" />
@@ -178,23 +179,32 @@
                             <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Lista Por Centro <i class="fa fa-fw fa-caret-down"></i></a>
                             <ul id="demo" class="collapse">
                                 <li>
-                                    <a href="#">Don Bosco</a>
+                                    <a href="/donbosco">Don Bosco</a>
                                 </li>
                                 <li>
-                                    <a href="#">Huancaina</a>
+                                    <a href="/sanjose">San José</a>
+                                </li>
+                                <li>
+                                    <a href="/sanfrancisco">San Francisco</a>
+                                </li>
+                                <li>
+                                    <a href="/juanpablloii">Juan Pablo II</a>
+                                </li>
+                                <li>
+                                    <a href="/hurtado">Hurtado</a>
                                 </li>
                             </ul>
                         </li-->
                         
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Usuario</a>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Usuario (Prox...)</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Mensajes</a>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Mensajes (Prox...)</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Configuracion</a>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Configuracion (Prox...)</a>
                         </li>
                         <li>
                             <a href="<?= base_url('logout') ?>"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
