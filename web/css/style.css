@@ -24,9 +24,18 @@ hr{
         margin-top:0px;
     }
 }
-
-.dataTables_wrapper .row{
-    margin:0px;
+@media only screen and (max-width: 765px) {
+    body{
+        margin-top: 52px;
+    }
+    h1{
+        font-size:24px;
+    }
+}
+@media only screen and (min-width: 479px) {
+    .row{
+        margin:0px;
+    }
 }
 
 body {

@@ -15,7 +15,7 @@
 <div class="form-group">
     <label class="col-sm-3 control-label">Tiene Oficio?: </label>
     <div class="col-sm-6">
-        <input name="person[has_occupation]" id="has_occupation" type="checkbox" data-on-text="Si" value="1" data-off-text="No" data-off="danger" <?= $person["has_occupation"] ? 'checked="checked"' : "" ?>>
+        <input name="person[has_occupation]" class="bootstrap-switch" id="has_occupation" type="checkbox" data-on-text="Si" value="1" data-off-text="No" data-off="danger" <?= $person["has_occupation"] ? 'checked="checked"' : "" ?>>
     </div>
 </div>
 

@@ -1,7 +1,7 @@
-<h2>Lista del centro de día de <?= $centerName ?></h2>
+<h1>Lista del centro de día de <?= $centerName ?></h1>
 <div class="adv-table">
     <div id="dynamic-table_wrapper" class="dataTables_wrapper form-inline">
-        <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered dataTable" id="search-table">
+        <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered dataTable dt-responsive" id="search-table">
             <thead>
                 <tr>
                     <th>Nombre</th>

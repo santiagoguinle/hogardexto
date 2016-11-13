@@ -7,7 +7,7 @@
         <div class="form-group">
             <label class="col-sm-3 control-label hidden-lg hidden-md">Avatar: </label>
             <div class="col-sm-3 hidden-sm"></div>
-            <div class="col-sm-6">
+            <div class="col-sm-3">
                 <div class="kv-avatar center-block" style="width:200px">
                     <input id="avatar" name="avatar" type="file" class="file-loading" accept="image/*">
                 </div>

@@ -3,7 +3,7 @@ $this->load->helper("form");
 ?>
 <form class="form-horizontal" method="post"  action="" enctype="multipart/form-data" >
     <header class="panel-heading">
-        <h1> Edicion de Personas </h1>
+        <h1> Edicion de Personas <button type="submit" class="btn btn-info"><i class='fa fa-save'></i> Guardar</button></h1> 
         <hr class="hrspacing"/>
     </header>
     <section class="panel">

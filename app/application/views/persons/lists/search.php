@@ -1,4 +1,4 @@
-<h2>Buscando entre todas las personas <a class="btn btn-success"><i class='fa fa-file-excel-o'></i> Descargar lista completa</a><br/></h2>
+<h1>Buscando entre todas las personas <a class="btn btn-success"><i class='fa fa-file-excel-o'></i> Descargar lista completa</a><br/></h1>
 
 <div class="adv-table">
     <div id="dynamic-table_wrapper" class="dataTables_wrapper form-inline">
