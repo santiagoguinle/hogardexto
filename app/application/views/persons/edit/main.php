@@ -13,6 +13,9 @@ $this->load->helper("form");
 
         <div class="panel-heading tab-bg-dark-navy-blue ">
             <ul class="nav nav-tabs">
+                <li >
+                    <a data-toggle="tab" href="#home">Vivienda</a>
+                </li>
                 <li class="active">
                     <a data-toggle="tab" href="#personal">Personal</a>
                 </li>
@@ -35,6 +38,11 @@ $this->load->helper("form");
         </div>
         <div class="panel-body">
             <div class="tab-content">
+                <div id="home" class="tab-pane">
+                    <div class="panel-body">
+                        <?php $this->load->view("persons/edit/home") ?>
+                    </div>
+                </div>
                 <div id="personal" class="tab-pane active">
                     <div class="panel-body">
                         <?php $this->load->view("persons/edit/personal") ?>

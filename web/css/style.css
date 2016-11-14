@@ -41,3 +41,7 @@ hr{
 body {
     background-color: #eee;
 }
+
+.datepicker-months,.datepicker-years,.datepicker-decades,.datepicker-centuries{
+    width:320px;
+}

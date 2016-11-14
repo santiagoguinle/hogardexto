@@ -18,11 +18,8 @@ class Persons extends CI_Controller
      */
     public function __construct()
     {
-
         parent::__construct();
-//$this->load->library(array('session'));
         $this->load->helper(array('url'));
-//$this->load->model('user');
         $this->load->model('person');
     }
 
@@ -31,7 +28,7 @@ class Persons extends CI_Controller
         
     }
 
-    private function getDataOptions()
+    private function getDataOptions($onlyActive=true)
     {
         $data["optionsCenter"] = array(
             0 => "Elegí un centro barrial",
@@ -54,22 +51,29 @@ class Persons extends CI_Controller
             3 => "En Penal"
         );
 
-        $data["optionsHospitals"] = array(
-            "Elegir un hospital",
-            1 => "Peña",
-            2 => "Muñiz",
-        );
+        $this->load->model("TypeHome");
+        $this->load->model("TypeHomeOption");
+        $data["typesHomes"] = ($onlyActive)?$this->TypeHome->getActives():$this->TypeHome->getAll();
+        $data["optionsTypehome"] = array("","");
+        foreach ($data["typesHomes"] as &$t) {
+            $data["optionsTypehome"][$t["id"]] = $t["name"];
+            $t["options"] = ($onlyActive)?$this->TypeHomeOption->getActiveByParent($t["id"]):$this->TypeHomeOption->getByParent($t["id"]);
+        }
 
-        $data["diseases"] = array(
-            array("id" => 1, "name" => "Tuberculosis"),
-            array("id" => 2, "name" => "HIV")
-        );
+
+        $this->load->model("disease");
+        $tempDiseases = $this->disease->getAllDiseases();
+        $data["diseases"] = array();
+        foreach ($tempDiseases as $d) {
+            $data["diseases"][] = array("id" => $d["id"], "name" => $d["disease_name"]);
+        }
+
         return $data;
     }
 
     public function view($id)
     {
-        $data = $this->getDataOptions();
+        $data = $this->getDataOptions(false);
 
         // create the data object
         $data["person"] = $this->person->getPerson($id);
@@ -92,8 +96,8 @@ class Persons extends CI_Controller
     {
         $data = $this->getDataOptions();
 
-        if(!isset($data["optionsCenter"][$centerId])) {
-            show_404("/person/center/".$centerId,$centerId." no encontrado como centro de dia");
+        if (!isset($data["optionsCenter"][$centerId])) {
+            show_404("/person/center/" . $centerId, $centerId . " no encontrado como centro barrial");
         }
 
         $data["centerName"] = $data["optionsCenter"][$centerId];
@@ -183,7 +187,15 @@ class Persons extends CI_Controller
 
             $person["avatar"] = $this->uploadAvatar($data["person"]["avatar"], $person["name"] . " " . $person["lastname"]);
 
-            if ($this->person->save($id, $person)) {
+            $person["gender"] = $this->input->post("person[gender]");
+            $person["has_work"] = $this->input->post("person[has_work]");
+            $person["has_occupation"] = $this->input->post("person[has_occupation]");
+
+            $person["typehomeoptionid"] = $this->input->post("person[typehomeoptionid][".$person["typehomeid"]."]");
+            $person["address"] = $this->input->post("person[address][".$person["typehomeid"]."]");
+            
+            
+            if ($this->person->save($id, $person) ) {
                 redirect("/persons/view/{$id}");
             } else {
                 $data["error"] = 'There was a problem creating this new person. Please try again.';

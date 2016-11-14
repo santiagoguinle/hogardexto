@@ -170,10 +170,10 @@
                             </ul>
                         </li-->
                         <li >
-                            <a href="<?= base_url("/persons/create") ?>"><i class="fa fa-fw fa-file"></i> Crear Persona</a>
+                            <a href="<?= base_url("/persons/create") ?>"><i class="fa fa-fw fa-user-plus"></i> Agregar Persona</a>
                         </li>
                         <li >
-                            <a href="<?= base_url("/persons/search") ?>"><i class="fa fa-fw fa-table"></i> Buscador</a>
+                            <a href="<?= base_url("/persons/search") ?>"><i class="fa fa-fw fa-search"></i> Buscador</a>
                         </li>
                         <li>
                             <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Lista Por Centro <i class="fa fa-fw fa-caret-down"></i></a>
@@ -188,7 +188,7 @@
                                     <a href="/sanfrancisco">San Francisco</a>
                                 </li>
                                 <li>
-                                    <a href="/juanpablloii">Juan Pablo II</a>
+                                    <a href="/juanpabloii">Juan Pablo II</a>
                                 </li>
                                 <li>
                                     <a href="/hurtado">Hurtado</a>
@@ -204,7 +204,12 @@
                             <a href="#"><i class="fa fa-fw fa-envelope"></i> Mensajes (Prox...)</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Configuracion (Prox...)</a>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#confs"><i class="fa fa-fw fa-gear"></i> Configuracion<i class="fa fa-fw fa-caret-down"></i></a>
+                            <ul id="confs" class="collapse">
+                                <li>
+                                    <a href="/typeshomes">Tipo de vivienda</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="<?= base_url('logout') ?>"><i class="fa fa-fw fa-power-off"></i> Log Out</a>

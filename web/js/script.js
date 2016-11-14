@@ -1,12 +1,17 @@
 document.addEventListener('DOMContentLoaded', function (event) {
-//    $('#nfe-product-table').dataTable({});
-//    $('#nfe-taxes-table').dataTable({});
-    // $.fn.bootstrapSwitch.defaults.size = 'large';
     $("input[type=checkbox].bootstrap-switch").bootstrapSwitch();
 
     $('.datepicker').datepicker({
         language: 'es',
-        format: 'yyyy-mm-dd'
+        format: 'yyyy-mm-dd',
+        disableTouchKeyboard: true,
+        startDate: '1916-01-01',
+        endDate: '0d',
+        autoclose: true,
+        startView: '0d',
+        orientation: 'bottom',
+        maxViewMode: 'decades',
+        defaultViewDate: {'year': 1970}
     });
 
     $("#avatar").fileinput({
@@ -16,12 +21,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
         showCaption: false,
         browseLabel: '',
         removeLabel: '',
-        browseIcon: '<i class="glyphicon glyphicon-folder-open"></i>',
-        removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
+        browseIcon: '<i class="glyphicon glyphicon-picture"></i>',
+        removeIcon: '<i class="glyphicon glyphicon-trash"></i>',
         removeTitle: 'Cancel or reset changes',
         elErrorContainer: '#kv-avatar-errors',
         msgErrorClass: 'alert alert-block alert-danger',
-        defaultPreviewContent: '<img src="'+ (typeof avatar !== 'undefined' && avatar !== '/img/avatar/' ? avatar :'/js/plugins/fileinput/img/default_avatar_male.jpg') + '" alt="Your Avatar" style="width:160px">',
+        defaultPreviewContent: '<img src="' + (typeof avatar !== 'undefined' && avatar !== '/img/avatar/' ? avatar : '/js/plugins/fileinput/img/default_avatar_male.jpg') + '" alt="Your Avatar" style="width:160px">',
         layoutTemplates: {main2: '{preview} {remove} {browse}'},
         allowedFileExtensions: ["jpg", "png", "gif"]
     });
@@ -36,14 +41,14 @@ document.addEventListener('DOMContentLoaded', function (event) {
         toggleWhileCheck("has_work", "work");
     });
     $("#has_work").change();
-    
+
     $("#person_cuil").change(function () {
         var classElement = $($('#person_cuil')[0].parentNode);
-        if(classElement.hasClass("has-error"))
+        if (classElement.hasClass("has-error"))
             classElement.removeClass("has-error");
-        if(classElement.hasClass("has-success"))
+        if (classElement.hasClass("has-success"))
             classElement.removeClass("has-success");
-        if($('#person_cuil')[0].value=="")
+        if ($('#person_cuil')[0].value == "")
             return;
         if (isValidCuitField("person_cuil")) {
             classElement.addClass("has-success");
@@ -52,6 +57,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
         }
     });
     $("#person_cuil").change();
+
+    $("#typehomeid").change(function () {
+        $(".typehomefield").hide();
+        $("#typehomeid_" + $('#typehomeid')[0].value).show();
+    });
+    $("#typehomeid").change();
 });
 
 function toggleWhileCheck(idcheckbox, idfield) {
@@ -62,9 +73,9 @@ function toggleWhileCheck(idcheckbox, idfield) {
     }
 }
 
-function isValidCuitField(fieldName){
-    var valueCuit = $("#"+fieldName)[0].value;
-    var numberCuit = valueCuit.replace("-","").replace("-","");
+function isValidCuitField(fieldName) {
+    var valueCuit = $("#" + fieldName)[0].value;
+    var numberCuit = valueCuit.replace("-", "").replace("-", "");
     return isValidNumberCuit(numberCuit);
 }
 

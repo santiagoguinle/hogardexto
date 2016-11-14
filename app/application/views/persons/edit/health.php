@@ -1,4 +1,6 @@
-<?php foreach ($diseases as $disease) { ?>
+<?php 
+
+foreach ($diseases as $disease) { ?>
     <div class="form-group">
         <label class="col-sm-3 control-label"><?= $disease["name"] ?>: </label>
         <div class="col-sm-6">

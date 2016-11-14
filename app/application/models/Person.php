@@ -30,19 +30,18 @@ class Person extends CI_Model
             $id = $this->create($data["name"], $data["firstdate"]);
         }
 
+        $diseases = array();
         if (isset($data["diseases"])) {
             $diseases = $data["diseases"];
             unset($data["diseases"]);
-            $this->load->model("Disease");
-            $this->Disease->saveToPerson($id, $diseases);
         }
+        $this->load->model("Disease");
+        $this->Disease->saveToPerson($id, $diseases);
 
         $this->db->where("id", $id);
         $result = $this->db->update('persons', $data);
 
-        if (isset($diseases)) {
-            $data["diseases"] = $diseases;
-        }
+        $data["diseases"] = $diseases;
         return $result;
     }
 
@@ -51,11 +50,11 @@ class Person extends CI_Model
         $this->db->select();
         $this->db->from('persons');
         $this->db->where('is_deleted = 0');
-        $this->db->where('center = '.$centerId);
+        $this->db->where('center = ' . $centerId);
 
         return $this->db->get()->result_array();
     }
-    
+
     public function get_all()
     {
         $this->db->select();
@@ -64,6 +63,7 @@ class Person extends CI_Model
 
         return $this->db->get()->result_array();
     }
+
     public function nextBirthdates()
     {
         $this->db->select();
@@ -73,6 +73,7 @@ class Person extends CI_Model
 
         return $this->db->get()->result_array();
     }
+
     public function getPerson($id)
     {
         $this->db->where("id", $id);
@@ -82,6 +83,7 @@ class Person extends CI_Model
         $person["diseases"] = $this->Disease->diseasesOfPerson($id);
         return $person;
     }
+
     public function lastPersons()
     {
         $this->db->select();
@@ -91,6 +93,7 @@ class Person extends CI_Model
 
         return $this->db->get()->result_array();
     }
+
     public function getDefaultPerson()
     {
         return array("name" => "",
@@ -115,7 +118,11 @@ class Person extends CI_Model
             "criminal_situation" => "",
             "diseases" => array(),
             "other_diseases" => "",
-            "treatments" => "");
+            "treatments" => "",
+            "typehomeid" => 0,
+            "typehomeoptionid" => 0,
+            "address" => "",
+            );
     }
 
 }
