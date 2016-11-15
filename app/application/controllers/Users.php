@@ -130,7 +130,7 @@ class Users extends CI_Controller
 
                 // set session user datas
                 $_SESSION['user_id'] = (int) $user->id;
-                $_SESSION['username'] = (string) $user->Username;
+                $_SESSION['username'] = (string) $user->username;
                 $_SESSION['logged_in'] = (bool) true;
                 $_SESSION['is_confirmed'] = (bool) $user->is_confirmed;
                 $_SESSION['is_admin'] = (bool) $user->is_admin;

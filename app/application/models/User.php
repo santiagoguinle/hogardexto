@@ -106,8 +106,7 @@ class User extends CI_Model
         $this->db->from('users');
         return $this->db->get()->result_array();
     }
-    
-    
+
     public function save(&$id, $data)
     {
         if ($id == null) {
@@ -119,4 +118,16 @@ class User extends CI_Model
 
         return $result;
     }
+
+    public function getDefault()
+    {
+        $user = new stdClass();
+        $user->id = "";
+        $user->username = "";
+        $user->email = "";
+        $user->is_confirmed = 1;
+        $user->is_admin = 0;
+        return $user;
+    }
+
 }
