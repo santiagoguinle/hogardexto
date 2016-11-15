@@ -176,7 +176,7 @@
                             <a href="<?= base_url("/persons/search") ?>"><i class="fa fa-fw fa-search"></i> Buscador</a>
                         </li>
                         <li>
-                            <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Lista Por Centro <i class="fa fa-fw fa-caret-down"></i></a>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-hospital-o"></i> Lista Por Centro <i class="fa fa-fw fa-caret-down"></i></a>
                             <ul id="demo" class="collapse">
                                 <li>
                                     <a href="/donbosco">Don Bosco</a>
@@ -198,16 +198,22 @@
                         
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Usuario (Prox...)</a>
-                        </li>
-                        <li>
                             <a href="#"><i class="fa fa-fw fa-envelope"></i> Mensajes (Prox...)</a>
                         </li>
                         <li>
                             <a href="javascript:;" data-toggle="collapse" data-target="#confs"><i class="fa fa-fw fa-gear"></i> Configuracion<i class="fa fa-fw fa-caret-down"></i></a>
                             <ul id="confs" class="collapse">
                                 <li>
-                                    <a href="/typeshomes">Tipo de vivienda</a>
+                                    <a href="/typeshomes"><i class="fa fa-fw fa-home"></i> Tipo de vivienda</a>
+                                </li>
+                                <li>
+                                    <a href="/benefits"><i class="fa fa-fw fa-money"></i> Beneficios</a>
+                                </li>
+                                <li>
+                                    <a href="/diseases"><i class="fa fa-fw fa-stethoscope"></i> Enfermedades</a>
+                                </li>
+                                <li>
+                                    <a href="/users/listing"><i class="fa fa-fw fa-user"></i> Usuarios</a>
                                 </li>
                             </ul>
                         </li>

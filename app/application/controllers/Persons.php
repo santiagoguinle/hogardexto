@@ -59,8 +59,7 @@ class Persons extends CI_Controller
             $data["optionsTypehome"][$t["id"]] = $t["name"];
             $t["options"] = ($onlyActive)?$this->TypeHomeOption->getActiveByParent($t["id"]):$this->TypeHomeOption->getByParent($t["id"]);
         }
-
-
+        
         $this->load->model("disease");
         $tempDiseases = $this->disease->getAllDiseases();
         $data["diseases"] = array();
@@ -68,6 +67,13 @@ class Persons extends CI_Controller
             $data["diseases"][] = array("id" => $d["id"], "name" => $d["disease_name"]);
         }
 
+        $this->load->model("Benefit");
+        $tempBenefits = $this->Benefit->getActives();
+        $data["benefits"] = array();
+        foreach ($tempBenefits as $d) {
+            $data["benefits"][] = array("id" => $d["id"], "name" => $d["name"]);
+        }
+        
         return $data;
     }
 

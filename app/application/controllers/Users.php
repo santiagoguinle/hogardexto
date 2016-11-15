@@ -22,7 +22,7 @@ class Users extends CI_Controller
         parent::__construct();
         //$this->load->library(array('session'));
         $this->load->helper(array('url'));
-        $this->load->model('user');
+        $this->load->model('User');
     }
 
     public function index()
@@ -75,7 +75,7 @@ class Users extends CI_Controller
             $email = $this->input->post('email');
             $password = $this->input->post('password');
 
-            if ($this->user->create_user($username, $email, $password)) {
+            if ($this->User->create_user($username, $email, $password)) {
 
                 // user creation ok
                 $this->load->view('user/register/register_success', $data);
@@ -123,14 +123,14 @@ class Users extends CI_Controller
             $username = $this->input->post('username');
             $password = $this->input->post('password');
 
-            if ($this->user->resolve_user_login($username, $password)) {
+            if ($this->User->resolve_user_login($username, $password)) {
 
-                $user_id = $this->user->get_user_id_from_username($username);
-                $user = $this->user->get_user($user_id);
+                $user_id = $this->User->get_user_id_from_username($username);
+                $user = $this->User->get_user($user_id);
 
                 // set session user datas
                 $_SESSION['user_id'] = (int) $user->id;
-                $_SESSION['username'] = (string) $user->username;
+                $_SESSION['username'] = (string) $user->Username;
                 $_SESSION['logged_in'] = (bool) true;
                 $_SESSION['is_confirmed'] = (bool) $user->is_confirmed;
                 $_SESSION['is_admin'] = (bool) $user->is_admin;
@@ -140,7 +140,7 @@ class Users extends CI_Controller
             } else {
 
                 // login failed
-                $data->error = 'Wrong username or password.';
+                $data->error = 'Error en usuario o contraseña.';
 
                 // send error to the view
                 $this->load->view('header_guest');
@@ -181,4 +181,49 @@ class Users extends CI_Controller
         }
     }
 
+    public function listing()
+    {
+        $data["users"] = $this->User->getAll();
+        $this->load->helper('form');
+        $this->load->view('header');
+        $this->load->view('user/list', $data);
+        $this->load->view('footer');
+    }
+    
+    public function create()
+    {
+        $this->edit(null);
+    }
+
+    public function edit($id = null)
+    {
+        $data["user"] = ($id) ? $this->User->get_user($id) : $this->User->getDefault();
+
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('user[username]', 'Nombre de usuario', 'trim|required|min_length[4]');
+        $this->form_validation->set_rules('user[email]', 'Email', '');
+        $this->form_validation->set_rules('user[is_confirmed]', 'Activo', '');
+        $this->form_validation->set_rules('user[is_admin]', 'Tipo de usuario', '');
+
+        if ($this->form_validation->run() === false) {
+            $this->load->view('header');
+            $this->load->view('user/edit', $data);
+            $this->load->view('footer');
+        } else {
+            $user = $this->input->post('user');
+            $user["is_confirmed"] = $this->input->post("user[is_confirmed]",0);
+            
+            if ($this->User->save($id, $user)) {
+                redirect("/users/listing");
+            } else {
+                $data["error"] = 'Hubo un problema creando usuario. Intente devuelta.';
+                $this->load->view('header');
+                $this->load->view('user/edit', $data);
+                $this->load->view('footer');
+            }
+        }
+    }
+    
 }

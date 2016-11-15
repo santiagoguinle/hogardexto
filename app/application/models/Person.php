@@ -38,10 +38,21 @@ class Person extends CI_Model
         $this->load->model("Disease");
         $this->Disease->saveToPerson($id, $diseases);
 
+        $benefits = array();
+        if (isset($data["benefits"])) {
+            $benefits = $data["benefits"];
+            unset($data["benefits"]);
+        }
+        $this->load->model("Disease");
+        $this->Benefit->saveToPerson($id, $benefits);
+
+        
+        
         $this->db->where("id", $id);
         $result = $this->db->update('persons', $data);
 
         $data["diseases"] = $diseases;
+        $data["benefits"] = $benefits;
         return $result;
     }
 
@@ -81,6 +92,7 @@ class Person extends CI_Model
         $person = $result->row_array();
         $this->load->model("Disease");
         $person["diseases"] = $this->Disease->diseasesOfPerson($id);
+        $person["benefits"] = $this->Benefit->benefitsOfPerson($id);
         return $person;
     }
 

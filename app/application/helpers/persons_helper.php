@@ -12,3 +12,14 @@ function hasDisease($disease, $person)
     }
 }
 
+function hasBenefit($benefit, $person)
+{
+    if (!isset($person) || !isset($person["benefits"])) {
+        return false;
+    }
+    foreach ($person["benefits"] as $testBenefits) {
+        if ($testBenefits == $benefit["id"]) {
+            return true;
+        }
+    }
+}

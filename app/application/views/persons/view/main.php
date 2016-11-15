@@ -14,25 +14,28 @@ $this->load->helper("form");
         <div class="panel-heading tab-bg-dark-navy-blue ">
             <ul class="nav nav-tabs">
                 <li >
-                    <a data-toggle="tab" href="#home">Vivienda</a>
+                    <a data-toggle="tab" href="#home"><i class="fa fa-fw fa-home"></i> Vivienda</a>
                 </li>
                 <li class="active">
-                    <a data-toggle="tab" href="#personal">Personal</a>
+                    <a data-toggle="tab" href="#personal"><i class="fa fa-fw fa-male"></i> Personal</a>
                 </li>
                 <li class="">
-                    <a data-toggle="tab" href="#governant">Judicial</a>
+                    <a data-toggle="tab" href="#governant"><i class="fa fa-fw fa-gavel"></i> Judicial</a>
                 </li>
                 <li class="">
-                    <a data-toggle="tab" href="#social">Social</a>
+                    <a data-toggle="tab" href="#social"><i class="fa fa-fw fa-group"></i> Social</a>
                 </li>
                 <li class="">
-                    <a data-toggle="tab" href="#health">Salud</a>
+                    <a data-toggle="tab" href="#benefits"><i class="fa fa-fw fa-money"></i> Beneficios</a>
                 </li>
                 <li class="">
-                    <a data-toggle="tab" href="#education">Educacion</a>
+                    <a data-toggle="tab" href="#health"><i class="fa fa-fw fa-stethoscope"></i> Salud</a>
                 </li>
                 <li class="">
-                    <a data-toggle="tab" href="#workinfo">Laboral</a>
+                    <a data-toggle="tab" href="#education"><i class="fa fa-fw fa-book"></i> Educacion</a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#workinfo"><i class="fa fa-fw fa-suitcase"></i> Laboral</a>
                 </li>
             </ul>
         </div>
@@ -56,6 +59,11 @@ $this->load->helper("form");
                 <div id="social" class="tab-pane">
                     <div class="panel-body">
                         <?php $this->load->view("persons/view/social") ?>
+                    </div>
+                </div>
+                <div id="benefits" class="tab-pane">
+                    <div class="panel-body">
+                        <?php $this->load->view("persons/view/benefit") ?>
                     </div>
                 </div>
                 <div id="health" class="tab-pane">
